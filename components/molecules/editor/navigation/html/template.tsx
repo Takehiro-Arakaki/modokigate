@@ -15,7 +15,7 @@ const htmlTemplateNav: FC<HtmlTemplateNavProps>  = (props) => {
     return active === tab ? "is-active" : "";
   };
 
-  const NavigationTab = (tab: NavigationTab, tabName: string) => {
+  const navigationTab = (tab: NavigationTab, tabName: string) => {
     return (
       <a
         className={`playground-nav__link ${activeClass(tab)}`}
@@ -28,17 +28,17 @@ const htmlTemplateNav: FC<HtmlTemplateNavProps>  = (props) => {
 
   const IndexHtmlTab = () => {
     const tabName = "index.html"
-    return props.tab.HTML === 0 ? NavigationTab(props.tab.HTML, tabName) : null
+    return props.tab.HTML === 0 ? navigationTab(props.tab.HTML, tabName) : null
   }
 
   const StyleSheetCssTab = () => {
     const tabName = "stylesheet.css"
-    return props.tab.CSS === 1 ? NavigationTab(props.tab.CSS, tabName) : null
+    return props.tab.CSS === 1 ? navigationTab(props.tab.CSS, tabName) : null
   }
 
   const ScriptJsTab = () => {
     const tabName = "script.js"
-    return props.tab.JS === 2 ? NavigationTab(props.tab.JS, tabName) : null
+    return props.tab.JS === 2 ? navigationTab(props.tab.JS, tabName) : null
   }
 
   return (
