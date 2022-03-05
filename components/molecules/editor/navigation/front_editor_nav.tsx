@@ -1,5 +1,5 @@
-import { useRecoilState, RecoilState } from "recoil";
-import { FC } from "react";
+import { useRecoilState, RecoilState } from 'recoil';
+import { FC } from 'react';
 import styles from '@/styles/components/editor/navigation/template.module.scss'
 
 type FrontEditorNavProps = {
@@ -13,7 +13,7 @@ const FrontEditorNav: FC<FrontEditorNavProps>  = (props) => {
   const [active, changeActive] = useRecoilState(props.activeTab);
 
   const activeClass = (tab: number) => {
-    return active === tab ? styles.active : "";
+    return active === tab ? styles.active : '';
   };
 
   const navigationTab = (tab: NavigationTab, tabName: string) => {
@@ -28,17 +28,17 @@ const FrontEditorNav: FC<FrontEditorNavProps>  = (props) => {
   }
 
   const IndexHtmlTab = () => {
-    const tabName = "index.html"
+    const tabName = 'index.html'
     return props.tab.HTML === 0 ? navigationTab(props.tab.HTML, tabName) : null
   }
 
   const StyleSheetCssTab = () => {
-    const tabName = "stylesheet.css"
+    const tabName = 'stylesheet.css'
     return props.tab.CSS === 1 ? navigationTab(props.tab.CSS, tabName) : null
   }
 
   const ScriptJsTab = () => {
-    const tabName = "script.js"
+    const tabName = 'script.js'
     return props.tab.JS === 2 ? navigationTab(props.tab.JS, tabName) : null
   }
 

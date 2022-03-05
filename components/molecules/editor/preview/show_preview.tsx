@@ -1,6 +1,6 @@
 import { useRecoilValue, RecoilState } from 'recoil'
-import { FC } from "react";
-import { setTimerSource } from "@/foundations/setTimerSource";
+import { FC } from 'react';
+import { setTimerSource } from '@/foundations/setTimerSource';
 import styles from '@/styles/components/editor/preview/template.module.scss'
 
 type ShowPreviewProps = {
@@ -13,7 +13,7 @@ const createFrontTemplate = (html: string, css: string, js: string) =>
   `<!doctype html>
     <html>
       <head>
-        <meta charset="utf-8">
+        <meta charset='utf-8'>
         <title>playground</title>
         <style>${css}</style>
       </head>
@@ -25,20 +25,23 @@ const createFrontTemplate = (html: string, css: string, js: string) =>
 
 const showPreview: FC<ShowPreviewProps> = (props) => {
   const html = useRecoilValue(props.htmlSource)
-  const css = props.cssSource ? useRecoilValue(props.cssSource) : "" ;
-  const js = props.jsSource ? useRecoilValue(props.jsSource) : "" ;
+  const css = props.cssSource ? useRecoilValue(props.cssSource) : '' ;
+  const js = props.jsSource ? useRecoilValue(props.jsSource) : '' ;
 
   const source = createFrontTemplate(html, css, js)
   const sourceArray = [html, css, js]
   const setSource = setTimerSource(source, sourceArray)
 
   return (
-    <div className={styles.preview}>
-      <iframe
-        sandbox="allow-scripts"
-        srcDoc={setSource}
-      ></iframe>
-    </div>
+    <>
+      <div className='hoge'></div>
+      <div className={styles.preview}>
+        <iframe
+          sandbox='allow-scripts'
+          srcDoc={setSource}
+        ></iframe>
+      </div>
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import { RecoilRoot, atom } from "recoil";
+import { RecoilRoot, atom } from 'recoil';
 import FrontEditor from '@/components/organism/editor/front_editor'
 import FrontPreview from '@/components/organism/editor/front_preview'
 import { htmlSource, cssSource, jsSource } from '@/hooks/setSourceAtoms';
@@ -11,7 +11,7 @@ const TAB = {
   CSS: 1,
 } as const;
 
-const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
+const activeTab = atom<0 | 1 | 2>({ key: 'active', default: TAB.HTML });
 
 type stylingPlayGroundProps = {
   htmlSource: string;

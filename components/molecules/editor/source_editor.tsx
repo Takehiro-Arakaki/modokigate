@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import AceEditor from 'react-ace';
 import 'ace-builds'
-import { useRecoilState, useRecoilValue, RecoilState } from "recoil";
-import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/mode-css";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
+import { useRecoilState, useRecoilValue, RecoilState } from 'recoil';
+import 'ace-builds/src-noconflict/mode-html';
+import 'ace-builds/src-noconflict/mode-css';
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-monokai';
 import styles from '@/styles/components/editor/template.module.scss'
 
 type SourceEditorProps = {
@@ -29,17 +29,17 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
 
   const source =  {
     [props.tab.HTML]: {
-      aceMode: "html",
+      aceMode: 'html',
       source: html,
       change: changeHtml,
     },
     [props.tab.CSS]: {
-      aceMode: "css",
+      aceMode: 'css',
       source: css,
       change: changeCss,
     },
     [props.tab.JS]: {
-      aceMode: "javascript",
+      aceMode: 'javascript',
       source: js,
       change: changeJs,
     },
@@ -62,7 +62,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
           useWorker: false,
           tabSize: 2,
           enableBasicAutocompletion: true,
-          fontSize: "12pt"
+          fontSize: '12pt'
         }}
         onChange={value => {
           target.change(value)
