@@ -1,12 +1,12 @@
 import {FC} from 'react'
 import dynamic from 'next/dynamic'
-import HtmlEditorNav from '@/components/molecules/editor/navigation/html_editor_nav'
+import FrontEditorNav from '@/components/molecules/editor/navigation/front_editor_nav'
 import { RecoilState } from 'recoil';
 import styles from '@/styles/components/editor/template.module.scss'
 
 const SourceEditor = dynamic(import('@/components/molecules/editor/source_editor'), { ssr: false })
 
-type HtmlEditorProps = {
+type FrontEditorProps = {
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
   jsSource: RecoilState<string>;
@@ -14,10 +14,10 @@ type HtmlEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
-const htmlEditor: FC<HtmlEditorProps> = (props) => {
+const frontEditor: FC<FrontEditorProps> = (props) => {
   return (
     <div className={styles.editor}>
-      <HtmlEditorNav
+      <FrontEditorNav
         tab={props.tab}
         activeTab={props.activeTab}
       />
@@ -32,4 +32,4 @@ const htmlEditor: FC<HtmlEditorProps> = (props) => {
   )
 }
 
-export default htmlEditor
+export default frontEditor

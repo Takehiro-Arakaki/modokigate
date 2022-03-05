@@ -1,7 +1,7 @@
 import { useRecoilValue, RecoilState } from 'recoil'
 import { FC } from "react";
 import { setTimerSource } from "@/foundations/setTimerSource";
-import styles from '@/styles/components/editor/preview/show_preview.module.scss'
+import styles from '@/styles/components/editor/preview/template.module.scss'
 
 type ShowPreviewProps = {
   htmlSource?: RecoilState<string>;
@@ -9,7 +9,7 @@ type ShowPreviewProps = {
   jsSource?: RecoilState<string>;
 };
 
-const createHtmlTemplate = (html: string, css: string, js: string) =>
+const createFrontTemplate = (html: string, css: string, js: string) =>
   `<!doctype html>
     <html>
       <head>
@@ -23,12 +23,12 @@ const createHtmlTemplate = (html: string, css: string, js: string) =>
       </body>
     </html>`
 
-const htmlTemplate: FC<ShowPreviewProps> = (props) => {
+const showPreview: FC<ShowPreviewProps> = (props) => {
   const html = useRecoilValue(props.htmlSource)
   const css = props.cssSource ? useRecoilValue(props.cssSource) : "" ;
   const js = props.jsSource ? useRecoilValue(props.jsSource) : "" ;
 
-  const source = createHtmlTemplate(html, css, js)
+  const source = createFrontTemplate(html, css, js)
   const sourceArray = [html, css, js]
   const setSource = setTimerSource(source, sourceArray)
 
@@ -42,4 +42,4 @@ const htmlTemplate: FC<ShowPreviewProps> = (props) => {
   )
 }
 
-export default htmlTemplate
+export default showPreview

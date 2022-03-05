@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from '@/styles/components/editor/preview/sample_preview.module.scss'
+import styles from '@/styles/components/editor/preview/template.module.scss'
 
 type SamplePreviweProps = {
   sampleHtmlSource?: string;
@@ -7,7 +7,7 @@ type SamplePreviweProps = {
   sampleJsSource?: string;
 };
 
-const createSampleHtmlTemplate = (html: string, css: string, js: string) =>
+const createSampleFrontTemplate = (html: string, css: string, js: string) =>
   `<!doctype html>
     <html>
       <head>
@@ -21,15 +21,15 @@ const createSampleHtmlTemplate = (html: string, css: string, js: string) =>
       </body>
     </html>`
 
-const htmlTemplate: FC<SamplePreviweProps> = (props) => {
+const samplePreview: FC<SamplePreviweProps> = (props) => {
   const html = props.sampleHtmlSource ?  props.sampleHtmlSource : "" ;
   const css = props.sampleCssSource ?  props.sampleCssSource : "" ;
   const js = props.sampleJsSource ?  props.sampleJsSource : "" ;
 
-  const source = createSampleHtmlTemplate(html, css, js)
+  const source = createSampleFrontTemplate(html, css, js)
 
   return (
-    <div className={styles.preview}>
+    <div className={styles.sample_preview}>
       <iframe
         sandbox="allow-scripts"
         srcDoc={source}
@@ -38,4 +38,4 @@ const htmlTemplate: FC<SamplePreviweProps> = (props) => {
   )
 }
 
-export default htmlTemplate
+export default samplePreview

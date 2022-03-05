@@ -6,19 +6,26 @@ import { htmlSource, cssSource, jsSource } from '@/hooks/setSourceAtoms';
 import styles from '@/styles/components/editor/info/template.module.scss'
 import { Grid } from '@material-ui/core';
 
-const TAB = { HTML: 0 } as const;
+const TAB = {
+  HTML: 0 ,
+  CSS: 1,
+} as const;
+
 const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
 
-type HtmlPlayGroundProps = {
+type stylingPlayGroundProps = {
   htmlSource: string;
+  cssSource: string;
   sampleHtmlSource: string;
+  sampleCssSource: string;
 };
 
-const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
+const stylingPlayGround: FC<stylingPlayGroundProps> = (props) => {
   return (
     <RecoilRoot
       initializeState={({ set }) => {
         set(htmlSource, props.htmlSource);
+        set(cssSource, props.cssSource);
       }}
     >
       <Grid container spacing={1}>
@@ -37,7 +44,9 @@ const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
         <Grid item xs={3}>
           <FrontPreview
             htmlSource={htmlSource}
+            cssSource={cssSource}
             sampleHtmlSource={props.sampleHtmlSource}
+            sampleCssSource={props.sampleCssSource}
           />
         </Grid>
       </Grid>
@@ -45,4 +54,4 @@ const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
   )
 }
 
-export default htmlPlayGround
+export default stylingPlayGround

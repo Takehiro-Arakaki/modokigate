@@ -3,3 +3,7 @@
   border: solid #a8a8a8 1px;
   height: 50%;
 }
+
+.sample_preview {
+  composes: preview;
+}
