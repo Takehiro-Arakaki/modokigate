@@ -6,8 +6,9 @@ import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
+import styles from '@/styles/components/editor/template.module.scss'
 
-type EditorProps = {
+type SourceEditorProps = {
   theme?: string;
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
@@ -16,11 +17,11 @@ type EditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
-const MIN_LINE = 40;
+const MIN_LINE = 36;
 const MAX_LINE = 100;
 const DEFAULT_THEME = 'monokai';
 
-const sourceEditor: FC<EditorProps> = (props) => {
+const sourceEditor: FC<SourceEditorProps> = (props) => {
   const [html, changeHtml] = useRecoilState(props.htmlSource)
   const [css, changeCss] = useRecoilState(props.cssSource)
   const [js, changeJs] = useRecoilState(props.jsSource)
@@ -48,7 +49,7 @@ const sourceEditor: FC<EditorProps> = (props) => {
   const theme = props.theme || DEFAULT_THEME;
 
   return (
-    <div className="playground-editor">
+    <div className={styles.editor}>
       <AceEditor
         mode={target.aceMode}
         theme={theme}
@@ -61,6 +62,7 @@ const sourceEditor: FC<EditorProps> = (props) => {
           useWorker: false,
           tabSize: 2,
           enableBasicAutocompletion: true,
+          fontSize: "12pt"
         }}
         onChange={value => {
           target.change(value)

@@ -1,8 +1,9 @@
 import { useRecoilValue, RecoilState } from 'recoil'
 import { FC } from "react";
 import { setTimerSource } from "@/foundations/setTimerSource";
+import styles from '@/styles/components/editor/preview/show_preview.module.scss'
 
-type HtmlTemplateProps = {
+type ShowPreviewProps = {
   htmlSource?: RecoilState<string>;
   cssSource?: RecoilState<string>;
   jsSource?: RecoilState<string>;
@@ -22,7 +23,7 @@ const createHtmlTemplate = (html: string, css: string, js: string) =>
       </body>
     </html>`
 
-const htmlTemplate: FC<HtmlTemplateProps> = (props) => {
+const htmlTemplate: FC<ShowPreviewProps> = (props) => {
   const html = useRecoilValue(props.htmlSource)
   const css = props.cssSource ? useRecoilValue(props.cssSource) : "" ;
   const js = props.jsSource ? useRecoilValue(props.jsSource) : "" ;
@@ -32,10 +33,9 @@ const htmlTemplate: FC<HtmlTemplateProps> = (props) => {
   const setSource = setTimerSource(source, sourceArray)
 
   return (
-    <div className="playground-result">
+    <div className={styles.preview}>
       <iframe
         sandbox="allow-scripts"
-        className="playground__content"
         srcDoc={setSource}
       ></iframe>
     </div>

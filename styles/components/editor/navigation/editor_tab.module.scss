@@ -1,10 +1,9 @@
 .navigation {
   display: flex;
-  border-bottom: solid #a8a8a8 1px;
-  width: 400px;
 }
 
 .link {
+  composes: navigation;
   position: relative;
   float: left;
   border-right: solid 2px #272822;
@@ -16,6 +15,7 @@
   background-color: #333;
   overflow: hidden;
   cursor: pointer;
+  max-width: 100%
 }
 
 .active {

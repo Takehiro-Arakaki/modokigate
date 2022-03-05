@@ -1,5 +1,4 @@
 import '@/styles/global.scss'
-import '@/styles/playground.scss'
 
 import { useEffect, FC } from 'react'
 import type { AppProps } from 'next/app'
@@ -10,7 +9,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
     jssStyles?.parentElement?.removeChild(jssStyles)
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <Component {...pageProps} />
+  )
 }
 
 export default App

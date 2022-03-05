@@ -1,8 +1,8 @@
 import {FC} from 'react'
 import { RecoilRoot, atom } from "recoil";
 import dynamic from 'next/dynamic'
-import HtmlTemplateNav from '../../components/molecules/editor/navigation/html/template'
-import HtmlTemplate from '../../components/molecules/editor/result/html_template'
+import HtmlTemplateNav from '../../components/molecules/editor/navigation/html_editor_nav'
+import HtmlTemplate from '@/components/molecules/editor/preview/show_preview'
 const SourceEditor = dynamic(import('../../components/molecules/editor/source_editor'), { ssr: false })
 
 const TAB = {

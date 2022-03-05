@@ -1,6 +1,6 @@
 import { useRecoilState, RecoilState } from "recoil";
 import { FC } from "react";
-import styles from '@/styles/components/navigation/editor_tab.module.scss'
+import styles from '@/styles/components/editor/navigation/editor_tab.module.scss'
 
 type HtmlTemplateNavProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 }
