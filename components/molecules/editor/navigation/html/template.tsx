@@ -1,5 +1,6 @@
 import { useRecoilState, RecoilState } from "recoil";
 import { FC } from "react";
+import styles from '@/styles/components/navigation/editor_tab.module.scss'
 
 type HtmlTemplateNavProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 }
@@ -12,13 +13,13 @@ const htmlTemplateNav: FC<HtmlTemplateNavProps>  = (props) => {
   const [active, changeActive] = useRecoilState(props.activeTab);
 
   const activeClass = (tab: number) => {
-    return active === tab ? "is-active" : "";
+    return active === tab ? styles.active : "";
   };
 
   const navigationTab = (tab: NavigationTab, tabName: string) => {
     return (
       <a
-        className={`playground-nav__link ${activeClass(tab)}`}
+        className={`${styles.link} ${activeClass(tab)}`}
         onClick={() => { changeActive(tab); }}
       >
         {tabName}
@@ -42,7 +43,7 @@ const htmlTemplateNav: FC<HtmlTemplateNavProps>  = (props) => {
   }
 
   return (
-    <div className="playground-nav">
+    <div className={styles.navigation}>
       <IndexHtmlTab/>
       <StyleSheetCssTab/>
       <ScriptJsTab/>

@@ -1,5 +1,5 @@
-import '../styles/global.css'
-import '../styles/playground.css'
+import '@/styles/global.scss'
+import '@/styles/playground.scss'
 
 import { useEffect, FC } from 'react'
 import type { AppProps } from 'next/app'
