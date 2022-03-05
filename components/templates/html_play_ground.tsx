@@ -9,12 +9,12 @@ import { Grid } from '@material-ui/core';
 const TAB = { HTML: 0 } as const;
 const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
 
-type BasicPlayGroundProps = {
+type HtmlPlayGroundProps = {
   htmlSource: string;
   sampleHtmlSource: string;
 };
 
-const basicPlayGround: FC<BasicPlayGroundProps> = (props) => {
+const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
   return (
     <RecoilRoot
       initializeState={({ set }) => {
@@ -45,4 +45,4 @@ const basicPlayGround: FC<BasicPlayGroundProps> = (props) => {
   )
 }
 
-export default basicPlayGround
+export default htmlPlayGround
