@@ -1,10 +1,10 @@
 import {FC} from 'react'
 import { RecoilRoot, atom } from "recoil";
 import dynamic from 'next/dynamic'
-import HtmlTemplateNav from '../../components/molecules/editor/navigation/html/template'
-import HtmlTemplate from '../../components/molecules/editor/result/html_template'
-import { htmlSource, cssSource, jsSource } from '../../hooks/setSourceAtoms';
-const SourceEditor = dynamic(import('../../components/molecules/editor/source_editor'), { ssr: false })
+import HtmlTemplateNav from '@/components/molecules/editor/navigation/html/template'
+import HtmlTemplate from '@/components/molecules/editor/result/html_template'
+import { htmlSource, cssSource, jsSource } from '@/../hooks/setSourceAtoms';
+const SourceEditor = dynamic(import('@/components/molecules/editor/source_editor'), { ssr: false })
 
 const TAB = { HTML: 0 } as const;
 const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });

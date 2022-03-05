@@ -1,6 +1,6 @@
 import { useRecoilValue, RecoilState } from 'recoil'
 import { FC } from "react";
-import { setTimerSource } from "../../../../foundations/setTimerSource";
+import { setTimerSource } from "@/foundations/setTimerSource";
 
 type HtmlTemplateProps = {
   htmlSource?: RecoilState<string>;
