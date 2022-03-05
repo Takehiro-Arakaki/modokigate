@@ -1,7 +1,15 @@
 import '../styles/global.css'
 import '../styles/playground.css'
 
-const App = ({ Component, pageProps }) => {
+import { useEffect, FC } from 'react'
+import type { AppProps } from 'next/app'
+
+const App: FC<AppProps> = ({ Component, pageProps }) => {
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side')
+    jssStyles?.parentElement?.removeChild(jssStyles)
+  }, [])
+
   return <Component {...pageProps} />
 }
 
