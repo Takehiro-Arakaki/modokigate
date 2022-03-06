@@ -29,12 +29,19 @@ const samplePreview: FC<SamplePreviweProps> = (props) => {
   const source = createSampleFrontTemplate(html, css, js)
 
   return (
-    <div className={styles.sample_preview}>
-      <iframe
-        sandbox='allow-scripts'
-        srcDoc={source}
-      ></iframe>
-    </div>
+    <>
+      <div className={styles.sample_preview}>
+        <div className={styles.sample_preview_tab}>
+          見本
+        </div>
+        <div className={styles.sample_preview_content}>
+          <iframe
+            sandbox='allow-scripts'
+            srcDoc={source}
+          ></iframe>
+        </div>
+      </div>
+    </>
   )
 }
 

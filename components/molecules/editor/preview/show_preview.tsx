@@ -34,12 +34,16 @@ const showPreview: FC<ShowPreviewProps> = (props) => {
 
   return (
     <>
-      <div className='hoge'></div>
       <div className={styles.preview}>
-        <iframe
-          sandbox='allow-scripts'
-          srcDoc={setSource}
-        ></iframe>
+        <div className={styles.preview_tab}>
+          プレビュー
+        </div>
+        <div className={styles.preview_content}>
+          <iframe
+            sandbox='allow-scripts'
+            srcDoc={setSource}
+          ></iframe>
+        </div>
       </div>
     </>
   )

@@ -1,9 +1,36 @@
 .preview {
-  display: inline-flex;
-  border: solid #a8a8a8 1px;
-  height: 50%;
+  height: 45%;
+}
+.preview_tab {
+  position: relative;
+  border-radius: 10px 10px 0px 0px;
+  padding: 5px 40px 5px 12px;
+  color: #898dae;
+  background-color: #e6ecf8;
+  overflow: hidden;
+  cursor: default;
+}
+
+.preview_content {
+  background-color: #fff;
+  overflow: overlay;
+  height: 100%;
+
+  iframe {
+    width: 99%;
+    height: 99%;
+  }
 }
 
 .sample_preview {
   composes: preview;
+  margin-top: 50px;
+}
+
+.sample_preview_tab {
+  composes: preview_tab;
+}
+
+.sample_preview_content {
+  composes: preview_content;
 }

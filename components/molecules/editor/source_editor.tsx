@@ -17,8 +17,8 @@ type SourceEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
-const MIN_LINE = 36;
-const MAX_LINE = 100;
+const MIN_LINE = 50;
+const MAX_LINE = 35;
 const DEFAULT_THEME = 'monokai';
 
 const sourceEditor: FC<SourceEditorProps> = (props) => {
