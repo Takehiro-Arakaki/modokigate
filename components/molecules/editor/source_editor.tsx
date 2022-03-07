@@ -17,8 +17,8 @@ type SourceEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
-const MIN_LINE = 50;
-const MAX_LINE = 35;
+const MIN_LINE = 32;
+const MAX_LINE = 32;
 const DEFAULT_THEME = 'monokai';
 
 const sourceEditor: FC<SourceEditorProps> = (props) => {
@@ -70,6 +70,11 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         editorProps={{ $blockScrolling: true }}
         key={target.aceMode}
       />
+      <div className={styles.editor_footer}>
+        <button className={styles.editor_button_next}>
+          結果を表示
+        </button>
+      </div>
     </div>
   );
 };
