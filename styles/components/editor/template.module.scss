@@ -4,13 +4,32 @@
 }
 
 .editor_footer {
-  margin: 0px 30px 0 0;
+  margin: 0px 30px 0 30px;
   line-height: 3;
   padding: 20px 0 10px 0;
+}
+
+.editor_answer_button_content {
+  text-align: left;
+  float: left;
+}
+
+.editor_answer_button {
+  padding: 1rem 3rem;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(65, 64, 64);
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.editor_next_button_content {
   text-align: right;
 }
 
-.editor_button_next {
+.editor_next_button {
   padding: 1rem 3rem;
   cursor: pointer;
   font-size: 17px;

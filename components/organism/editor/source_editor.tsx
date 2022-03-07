@@ -7,6 +7,7 @@ import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import styles from '@/styles/components/editor/template.module.scss'
+import EditorFooter from '@/components/molecules/editor/footer';
 
 type SourceEditorProps = {
   theme?: string;
@@ -78,24 +79,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         editorProps={{ $blockScrolling: true }}
         key={target.aceMode}
       />
-      <div className={styles.editor_footer}>
-        <div className={styles.editor_answer_button_content}>
-          <button
-            className={styles.editor_answer_button}
-            onClick={onAnswerButton}
-          >
-            答えをみる
-          </button>
-        </div>
-        <div className={styles.editor_next_button_content}>
-          <button
-            className={styles.editor_next_button}
-            onClick={onNextButton}
-          >
-            結果を表示
-          </button>
-        </div>
-      </div>
+      <EditorFooter/>
     </div>
   );
 };
