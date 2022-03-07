@@ -1,0 +1,47 @@
+.protocol {
+  height: 100%;
+}
+.protocol_tab {
+  position: relative;
+  border-radius: 5px 5px 0px 0px;
+  padding: 5px 40px 5px 12px;
+  color: #898dae;
+  background-color: #e6ecf8;
+  overflow: hidden;
+  cursor: default;
+}
+
+.protocol_content {
+  background-color: #fff;
+  overflow: overlay;
+  height: 100%;
+}
+
+.protocol_header {
+  margin: 10px 30px 00px 30px;
+}
+.protocol_unordered {
+  list-style: none;
+  padding: 0
+}
+
+.protocol_list {
+  margin: 10px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.protocol_card_header {
+  font-size: 20px;
+  text-align: left;
+  padding-left: 20px;
+  color: #fff;
+  background-color: #495265;
+}
+.protocol_card_content{
+  color: #777;
+  border-top: 1px solid red;
+  font-size: 14px;
+  line-height: 1.5;
+}

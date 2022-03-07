@@ -2,14 +2,20 @@ import {FC} from 'react'
 import { RecoilRoot, atom } from "recoil";
 import FrontEditor from '@/components/organism/editor/front_editor'
 import FrontPreview from '@/components/organism/editor/front_preview'
+import Protocol from '@/components/organism/editor/protocol'
 import { htmlSource, cssSource, jsSource } from '@/hooks/setSourceAtoms';
-import styles from '@/styles/components/editor/info/template.module.scss'
 import { Grid } from '@material-ui/core';
 
 const TAB = { HTML: 0 } as const;
 const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
 
 type HtmlPlayGroundProps = {
+  protocolHeader: string;
+  protocol: {
+    file_name: string;
+    info: string;
+    link: string;
+  }[];
   htmlSource: string;
   sampleHtmlSource: string;
 };
@@ -23,7 +29,10 @@ const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
     >
       <Grid container spacing={1}>
         <Grid item xs={3}>
-          <div className={styles.hoge}></div>
+          <Protocol
+            protocolHeader={props.protocolHeader}
+            protocol={props.protocol}
+          />
         </Grid>
         <Grid item xs={6}>
           <FrontEditor
