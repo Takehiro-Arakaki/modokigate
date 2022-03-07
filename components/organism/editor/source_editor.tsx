@@ -21,6 +21,14 @@ const MIN_LINE = 32;
 const MAX_LINE = 32;
 const DEFAULT_THEME = 'monokai';
 
+const onAnswerButton = () => {
+
+}
+
+const onNextButton = () => {
+
+}
+
 const sourceEditor: FC<SourceEditorProps> = (props) => {
   const [html, changeHtml] = useRecoilState(props.htmlSource)
   const [css, changeCss] = useRecoilState(props.cssSource)
@@ -71,9 +79,22 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         key={target.aceMode}
       />
       <div className={styles.editor_footer}>
-        <button className={styles.editor_button_next}>
-          結果を表示
-        </button>
+        <div className={styles.editor_answer_button_content}>
+          <button
+            className={styles.editor_answer_button}
+            onClick={onAnswerButton}
+          >
+            答えをみる
+          </button>
+        </div>
+        <div className={styles.editor_next_button_content}>
+          <button
+            className={styles.editor_next_button}
+            onClick={onNextButton}
+          >
+            結果を表示
+          </button>
+        </div>
       </div>
     </div>
   );
