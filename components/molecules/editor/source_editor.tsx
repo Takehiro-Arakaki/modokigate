@@ -14,7 +14,7 @@ type SourceEditorProps = {
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
   jsSource: RecoilState<string>;
-  tab: { HTML?: 0; CSS?: 1; JS?: 2 }
+  tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
@@ -79,6 +79,8 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         key={target.aceMode}
       />
       <EditorFooter
+        tab={props.tab}
+        activeTab={props.activeTab}
         mode={target.aceMode}
         value={target.source}
       />

@@ -6,7 +6,7 @@ import Protocol from '@/components/organism/editor/protocol'
 import { htmlSource, cssSource, jsSource } from '@/hooks/setSourceAtoms';
 import { Grid } from '@material-ui/core';
 
-const TAB = { HTML: 0 } as const;
+const TAB = { HTML: 0, CSS: 1 } as const;
 const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
 
 type StylingPlayGroundProps = {
@@ -49,9 +49,9 @@ const stylingPlayGround: FC<StylingPlayGroundProps> = (props) => {
         <Grid item xs={3}>
           <FrontPreview
             htmlSource={htmlSource}
-            cssSource={htmlSource}
+            cssSource={cssSource}
             sampleHtmlSource={props.sampleHtmlSource}
-            sampleCssSource={props.sampleHtmlSource}
+            sampleCssSource={props.sampleCssSource}
           />
         </Grid>
       </Grid>
