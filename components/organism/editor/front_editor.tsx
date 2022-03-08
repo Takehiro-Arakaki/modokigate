@@ -4,7 +4,7 @@ import FrontEditorNav from '@/components/molecules/editor/navigation/front_edito
 import { RecoilState } from 'recoil';
 import styles from '@/styles/components/editor/template.module.scss'
 
-const SourceEditor = dynamic(import('@/components/organism/editor/source_editor'), { ssr: false })
+const SourceEditor = dynamic(import('@/components/molecules/editor/source_editor'), { ssr: false })
 
 type FrontEditorProps = {
   htmlSource: RecoilState<string>;
