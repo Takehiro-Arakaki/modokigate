@@ -10,7 +10,10 @@ type FrontEditorProps = {
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
   jsSource: RecoilState<string>;
-  tab: { HTML?: 0; CSS?: 1; JS?: 2 }
+  sampleHtmlSource: string;
+  sampleCssSource?: string;
+  sampleJsSource?: string;
+  tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
@@ -25,6 +28,9 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
         htmlSource={props.htmlSource}
         cssSource={props.cssSource}
         jsSource={props.jsSource}
+        sampleHtmlSource={props.sampleHtmlSource}
+        sampleCssSource={props.sampleCssSource}
+        sampleJsSource={props.sampleJsSource}
         tab={props.tab}
         activeTab={props.activeTab}
       />

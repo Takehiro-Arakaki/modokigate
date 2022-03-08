@@ -11,8 +11,6 @@ type FrontAnswerModalProps = {
   mode: string;
   value: string;
 };
-// const TAB = { HTML: 0 } as const;
-// const activeTab = atom<0 | 1 | 2>({ key: "active", default: TAB.HTML });
 
 const switchModal = (
   show: boolean,

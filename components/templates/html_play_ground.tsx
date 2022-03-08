@@ -41,6 +41,7 @@ const htmlPlayGround: FC<HtmlPlayGroundProps> = (props) => {
             jsSource={jsSource}
             tab={TAB}
             activeTab={activeTab}
+            sampleHtmlSource={props.sampleHtmlSource}
           />
         </Grid>
         <Grid item xs={3}>

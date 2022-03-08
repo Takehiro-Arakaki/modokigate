@@ -42,6 +42,8 @@ const stylingPlayGround: FC<StylingPlayGroundProps> = (props) => {
             htmlSource={htmlSource}
             cssSource={cssSource}
             jsSource={jsSource}
+            sampleHtmlSource={props.sampleHtmlSource}
+            sampleCssSource={props.sampleCssSource}
             tab={TAB}
             activeTab={activeTab}
           />

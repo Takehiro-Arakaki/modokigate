@@ -14,6 +14,9 @@ type SourceEditorProps = {
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
   jsSource: RecoilState<string>;
+  sampleHtmlSource: string;
+  sampleCssSource?: string;
+  sampleJsSource?: string;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
 };
@@ -22,6 +25,7 @@ type SourceType = {[key: number]: SourceContentType}
 type SourceContentType = {
   aceMode: string;
   source: string;
+  sampleSource: string;
   change: SetterOrUpdater<string>;
 }
 
@@ -39,16 +43,19 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
     [props.tab.HTML]: {
       aceMode: 'html',
       source: html,
+      sampleSource: props.sampleHtmlSource,
       change: changeHtml,
     },
     [props.tab.CSS]: {
       aceMode: 'css',
       source: css,
+      sampleSource: props.sampleCssSource,
       change: changeCss,
     },
     [props.tab.JS]: {
       aceMode: 'javascript',
       source: js,
+      sampleSource: props.sampleJsSource,
       change: changeJs,
     },
   }
@@ -82,7 +89,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         tab={props.tab}
         activeTab={props.activeTab}
         mode={target.aceMode}
-        value={target.source}
+        value={target.sampleSource}
       />
     </div>
   );
