@@ -20,7 +20,7 @@ const MIN_LINE = 32;
 const MAX_LINE = 32;
 const DEFAULT_THEME = 'monokai';
 
-const sourceEditor: FC<FrontAnswerEditorProps> = (props) => {
+const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
   const theme = props.theme || DEFAULT_THEME;
 
   return (
@@ -37,7 +37,8 @@ const sourceEditor: FC<FrontAnswerEditorProps> = (props) => {
           width={null}
           minLines={MIN_LINE}
           maxLines={MAX_LINE}
-          readOnly={false}
+          readOnly={true}
+          showPrintMargin={false}
           setOptions={{
             useWorker: false,
             tabSize: 2,
@@ -52,4 +53,4 @@ const sourceEditor: FC<FrontAnswerEditorProps> = (props) => {
   );
 };
 
-export default sourceEditor
+export default frontAnswerEditor
