@@ -1,11 +1,12 @@
 import { FC } from 'react'
-import AceEditor from 'react-ace';
 import 'ace-builds'
 import { useRecoilState, useRecoilValue, RecoilState, SetterOrUpdater } from 'recoil';
 import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
+import 'ace-builds/src-noconflict/ext-language_tools.js';
+import AceEditor from 'react-ace';
 import EditorFooter from '@/components/molecules/editor/footer';
 
 type SourceEditorProps = {
