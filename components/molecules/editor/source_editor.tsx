@@ -6,7 +6,6 @@ import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
-import styles from '@/styles/components/editor/template.module.scss'
 import EditorFooter from '@/components/molecules/editor/footer';
 
 type SourceEditorProps = {
@@ -64,7 +63,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
   const theme = props.theme || DEFAULT_THEME;
 
   return (
-    <div className={styles.editor}>
+    <>
       <AceEditor
         mode={target.aceMode}
         theme={theme}
@@ -91,7 +90,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         mode={target.aceMode}
         value={target.sampleSource}
       />
-    </div>
+    </>
   );
 };
 
