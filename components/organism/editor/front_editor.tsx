@@ -1,8 +1,9 @@
 import {FC} from 'react'
 import dynamic from 'next/dynamic'
 import FrontEditorNav from '@/components/molecules/editor/navigation/front_editor_nav'
-import { RecoilState } from 'recoil';
+import { RecoilState, useRecoilState, useRecoilValue, SetterOrUpdater } from 'recoil';
 import styles from '@/styles/components/editor/template.module.scss'
+import EditorFooter from '@/components/molecules/editor/footer';
 
 const SourceEditor = dynamic(import('@/components/molecules/editor/source_editor'), { ssr: false })
 
@@ -17,7 +18,43 @@ type FrontEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
+type SourceType = {[key: number]: SourceContentType}
+export type SourceContentType = {
+  aceMode: string;
+  source: string;
+  sampleSource: string;
+  change: SetterOrUpdater<string>;
+}
+
 const frontEditor: FC<FrontEditorProps> = (props) => {
+  const [html, changeHtml] = useRecoilState(props.htmlSource)
+  const [css, changeCss] = useRecoilState(props.cssSource)
+  const [js, changeJs] = useRecoilState(props.jsSource)
+  const active = useRecoilValue(props.activeTab)
+
+  const source: SourceType =  {
+    [props.tab.HTML]: {
+      aceMode: 'html',
+      source: html,
+      sampleSource: props.sampleHtmlSource,
+      change: changeHtml,
+    },
+    [props.tab.CSS]: {
+      aceMode: 'css',
+      source: css,
+      sampleSource: props.sampleCssSource,
+      change: changeCss,
+    },
+    [props.tab.JS]: {
+      aceMode: 'javascript',
+      source: js,
+      sampleSource: props.sampleJsSource,
+      change: changeJs,
+    },
+  }
+
+  const target = source[active]
+
   return (
     <div className={styles.editor}>
       <FrontEditorNav
@@ -31,6 +68,13 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
         sampleHtmlSource={props.sampleHtmlSource}
         sampleCssSource={props.sampleCssSource}
         sampleJsSource={props.sampleJsSource}
+        tab={props.tab}
+        activeTab={props.activeTab}
+        target={target}
+      />
+      <EditorFooter
+        mode={target.aceMode}
+        value={target.sampleSource}
         tab={props.tab}
         activeTab={props.activeTab}
       />

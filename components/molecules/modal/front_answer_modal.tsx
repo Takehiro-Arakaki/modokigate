@@ -1,8 +1,10 @@
 import { FC, Dispatch, SetStateAction, useState } from 'react';
+import dynamic from 'next/dynamic';
 import styles from '@/styles/components/modal/front_answer_modal.module.scss'
 import FrontAnswerEditorNav from '@/components/molecules/editor/navigation/front_answer_editor_nav'
-import FrontAnswerEditor from '@/components/organism/editor/front_answer_editor'
-import FrontAnswerDiffEditor from '@/components/organism/editor/front_answer_diff_editor'
+const FrontAnswerDiffEditor = dynamic(import('@/components/organism/editor/front_answer_diff_editor'), { ssr: false })
+const FrontAnswerEditor = dynamic(import('@/components/organism/editor/front_answer_editor'), { ssr: false })
+
 import { RecoilState } from 'recoil';
 
 type FrontAnswerModalProps = {

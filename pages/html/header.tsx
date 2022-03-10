@@ -22,7 +22,7 @@ const HeaderHtml =
 <h3 class="hello">Hello PlayGround!</h3>`
 
 const SampleHeaderHtml =
-`<h1 class="hello">これは見本のテストです</h3>`
+`<h1 class="hello">これは見本のテストです</h1>`
 
 
 const htmlHeader: FC<{}> = () => {

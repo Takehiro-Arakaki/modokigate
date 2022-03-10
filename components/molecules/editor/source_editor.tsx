@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import 'ace-builds'
-import { useRecoilState, useRecoilValue, RecoilState, SetterOrUpdater } from 'recoil';
+import { RecoilState } from 'recoil';
 import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools.js';
 import AceEditor from 'react-ace';
-import EditorFooter from '@/components/molecules/editor/footer';
+import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type SourceEditorProps = {
   theme?: string;
@@ -19,56 +19,22 @@ type SourceEditorProps = {
   sampleJsSource?: string;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
+  target: SourceContentType;
 };
-
-type SourceType = {[key: number]: SourceContentType}
-type SourceContentType = {
-  aceMode: string;
-  source: string;
-  sampleSource: string;
-  change: SetterOrUpdater<string>;
-}
 
 const MIN_LINE = 32;
 const MAX_LINE = 32;
 const DEFAULT_THEME = 'monokai';
 
 const sourceEditor: FC<SourceEditorProps> = (props) => {
-  const [html, changeHtml] = useRecoilState(props.htmlSource)
-  const [css, changeCss] = useRecoilState(props.cssSource)
-  const [js, changeJs] = useRecoilState(props.jsSource)
-  const active = useRecoilValue(props.activeTab)
-
-  const source: SourceType =  {
-    [props.tab.HTML]: {
-      aceMode: 'html',
-      source: html,
-      sampleSource: props.sampleHtmlSource,
-      change: changeHtml,
-    },
-    [props.tab.CSS]: {
-      aceMode: 'css',
-      source: css,
-      sampleSource: props.sampleCssSource,
-      change: changeCss,
-    },
-    [props.tab.JS]: {
-      aceMode: 'javascript',
-      source: js,
-      sampleSource: props.sampleJsSource,
-      change: changeJs,
-    },
-  }
-
-  const target = source[active]
   const theme = props.theme || DEFAULT_THEME;
 
   return (
     <>
       <AceEditor
-        mode={target.aceMode}
+        mode={props.target.aceMode}
         theme={theme}
-        value={target.source}
+        value={props.target.source}
         width={null}
         minLines={MIN_LINE}
         maxLines={MAX_LINE}
@@ -80,16 +46,10 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
           fontSize: '12pt'
         }}
         onChange={value => {
-          target.change(value)
+          props.target.change(value)
         }}
         editorProps={{ $blockScrolling: true }}
-        key={target.aceMode}
-      />
-      <EditorFooter
-        tab={props.tab}
-        activeTab={props.activeTab}
-        mode={target.aceMode}
-        value={target.sampleSource}
+        key={props.target.aceMode}
       />
     </>
   );

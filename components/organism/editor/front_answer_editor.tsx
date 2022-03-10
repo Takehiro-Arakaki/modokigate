@@ -1,10 +1,11 @@
 import { FC } from 'react'
-import AceEditor from 'react-ace';
 import 'ace-builds'
 import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
+import AceEditor from 'react-ace';
+
 import styles from '@/styles/components/editor/template.module.scss'
 
 type FrontAnswerEditorProps = {
