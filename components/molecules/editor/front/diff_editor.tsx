@@ -13,8 +13,6 @@ type DiffEditorProps = {
 
 const diffEditor: FC<DiffEditorProps> = (props) => {
   if (props.diffShow) {
-    return null
-  } else {
     return (
       <DiffEditor
         value={[props.target.source, props.target.sampleSource]}
@@ -40,6 +38,8 @@ const diffEditor: FC<DiffEditorProps> = (props) => {
         }}
       />
     )
+  } else {
+    return null
   }
 };
 

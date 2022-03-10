@@ -8,7 +8,7 @@ import AceEditor from 'react-ace';
 import styles from '@/styles/components/editor/template.module.scss'
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
-type AnswerEditorProps = {
+type FrontAnswerEditorProps = {
   theme?: string;
   mode: string;
   target: SourceContentType,
@@ -18,7 +18,7 @@ const MIN_LINE = 32;
 const MAX_LINE = 32;
 const DEFAULT_THEME = 'monokai';
 
-const answerEditor: FC<AnswerEditorProps> = (props) => {
+const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
   const theme = props.theme || DEFAULT_THEME;
   if (props.answerShow) {
     return (
@@ -50,4 +50,4 @@ const answerEditor: FC<AnswerEditorProps> = (props) => {
   }
 };
 
-export default answerEditor
+export default frontAnswerEditor

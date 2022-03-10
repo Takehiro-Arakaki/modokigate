@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import styles from '@/styles/components/editor/template.module.scss'
-import FrontAnswerModal from '@/components/molecules/modal/front_answer_modal';
+import ModalFrontAnswer from '@/components/molecules/modal/front_answer';
 import { RecoilState } from 'recoil';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
@@ -30,7 +30,7 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
         >
           答えをみる
         </button>
-        <FrontAnswerModal
+        <ModalFrontAnswer
           show={show}
           setModalShow={setModalShow}
           tab={props.tab}
