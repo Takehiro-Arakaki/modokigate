@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import styles from '@/styles/components/molecules/editor/template.module.scss'
 
 type AnswerEditorNavProps = {
   diffShow: boolean,
@@ -9,7 +10,11 @@ const frontAnswerHeader: FC<AnswerEditorNavProps> = (props) => {
     return null
   } else {
     return (
-      <div>答え</div>
+      <div className={styles.editor_header}>
+        <div className={styles.editor_header_content}>
+          答え
+        </div>
+      </div>
     )
   }
 };
