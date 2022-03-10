@@ -2,7 +2,7 @@ import { FC, Dispatch, SetStateAction, useState } from 'react';
 import dynamic from 'next/dynamic';
 import styles from '@/styles/components/molecules/modal/front_answer.module.scss'
 import FrontAnswerHeader from '@/components/molecules/editor/front/answer_header'
-import FrontNavAnswerEditor from '@/components/molecules/editor/front/nav/answer_editor'
+import FrontAnswerNav from '@/components/molecules/editor/front/answer_nav'
 const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
 const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/answer_editor'), { ssr: false })
 
@@ -33,7 +33,7 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
           <FrontAnswerHeader
             diffShow={diffShow}
           />
-          <FrontNavAnswerEditor
+          <FrontAnswerNav
             tab={props.tab}
             activeTab={props.activeTab}
             setDiffToggle={setDiffToggle}
