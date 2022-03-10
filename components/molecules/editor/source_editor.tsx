@@ -33,6 +33,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         minLines={MIN_LINE}
         maxLines={MAX_LINE}
         readOnly={false}
+        showPrintMargin={false}
         setOptions={{
           useWorker: false,
           tabSize: 2,

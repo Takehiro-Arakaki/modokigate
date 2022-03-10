@@ -1,0 +1,16 @@
+.play_ground{
+  display: grid;
+  grid-gap: 5px;
+}
+
+.play_ground_protocol{
+  grid-column: 1 / 2;
+}
+
+.play_ground_editor{
+  grid-column: 2 / 13;
+}
+
+.play_ground_preview{
+  grid-column: 13 / 14;
+}
