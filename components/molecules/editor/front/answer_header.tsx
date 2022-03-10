@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import styles from '@/styles/components/molecules/editor/template.module.scss'
+import styles from '@/styles/components/molecules/editor/front/template.module.scss'
 
 type AnswerEditorNavProps = {
   diffShow: boolean,

@@ -1,6 +1,7 @@
 import { FC, Dispatch, SetStateAction } from 'react'
 import styles from '@/styles/components/molecules/editor/front/template.module.scss'
 import FrontNav from '@/components/molecules/editor/front/nav';
+
 import { RecoilState } from 'recoil';
 
 type FrontNavAnswerEditorProps = {
@@ -17,13 +18,11 @@ type FrontNavAnswerEditorProps = {
 const frontNavAnswerEditor: FC<FrontNavAnswerEditorProps> = (props) => {
   return (
     <>
-      <div className={styles.answer_header}>
-        <div className={styles.answer_navigation}>
-          <FrontNav
-            tab={props.tab}
-            activeTab={props.activeTab}
-          />
-        </div>
+      <div className={styles.answer_navigation}>
+        <FrontNav
+          tab={props.tab}
+          activeTab={props.activeTab}
+        />
       </div>
       <div className={styles.answer_diff_button}>
         <label className={styles.toggle_switch}>
