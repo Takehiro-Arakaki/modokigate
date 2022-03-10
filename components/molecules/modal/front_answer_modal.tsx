@@ -2,8 +2,8 @@ import { FC, Dispatch, SetStateAction, useState } from 'react';
 import dynamic from 'next/dynamic';
 import styles from '@/styles/components/modal/front_answer_modal.module.scss'
 import FrontAnswerEditorNav from '@/components/molecules/editor/navigation/front_answer_editor_nav'
-const FrontAnswerDiffEditor = dynamic(import('@/components/organism/editor/front_answer_diff_editor'), { ssr: false })
-const FrontAnswerEditor = dynamic(import('@/components/organism/editor/front_answer_editor'), { ssr: false })
+const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
+const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/answer_editor'), { ssr: false })
 
 import { RecoilState } from 'recoil';
 
@@ -38,7 +38,7 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
             answerShow={answerShow}
             diffShow={diffShow}
           />
-          <FrontAnswerDiffEditor
+          <FrontDiffEditor
             mode={props.mode}
             value={props.value}
             diffShow={diffShow}
