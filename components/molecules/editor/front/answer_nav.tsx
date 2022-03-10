@@ -18,7 +18,7 @@ type FrontNavAnswerEditorProps = {
 const frontNavAnswerEditor: FC<FrontNavAnswerEditorProps> = (props) => {
   return (
     <>
-      <div className={styles.answer_navigation}>
+      <div className={styles.answer_navigation_tab}>
         <FrontNav
           tab={props.tab}
           activeTab={props.activeTab}

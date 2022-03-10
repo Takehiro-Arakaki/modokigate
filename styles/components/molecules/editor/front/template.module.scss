@@ -1,10 +1,3 @@
-.editor_header {
-  text-align: center;
-  height: 20px;
-}
-.editor_header_content {
-  font-size: 20px;
-}
 .diff_nav {
   display: flex;
 }
@@ -25,8 +18,8 @@
 .navigation {
   display: flex;
 }
+
 .link {
-  composes: navigation;
   position: relative;
   float: left;
   border-right: solid 2px #272822;
@@ -47,7 +40,12 @@
   box-shadow: inset 0 -3px 0 #7769b8;
 }
 
-.answer_navigation {
+.split_icon {
+  margin-left: auto;
+  padding-top: 5px;
+}
+
+.answer_navigation_tab {
   float: left;
   font-size:14px;
 }

@@ -1,7 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState } from 'react';
 import dynamic from 'next/dynamic';
 import styles from '@/styles/components/molecules/modal/front_answer.module.scss'
-import FrontAnswerHeader from '@/components/molecules/editor/front/answer_header'
 import FrontAnswerNav from '@/components/molecules/editor/front/answer_nav'
 import FrontDiffNav from '@/components/molecules/editor/front/diff_nav'
 const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
@@ -11,8 +10,8 @@ import { RecoilState } from 'recoil';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type FrontAnswerModalProps = {
-  show: boolean;
-  setModalShow: Dispatch<SetStateAction<boolean>>
+  modalShow: boolean;
+  setModalShow: Dispatch<SetStateAction<boolean>>;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
   mode: string;
@@ -24,16 +23,28 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
   const [answerShow, setAnswerShow] = useState(true);
   const [diffShow, setDiffShow] = useState(false);
 
-  if (props.show) {
+  const FrontAnswerHeader = () => {
+    if(diffShow){
+      return null
+    } else {
+      return (
+        <div className={styles.editor_header}>
+          <div className={styles.editor_header_content}>
+            答え
+          </div>
+        </div>
+      )
+    }
+  }
+
+  if (props.modalShow) {
     return (
       <div className={styles.modal_screen}>
         <div
           className={styles.modal_content}
           onClick={(e) => e.stopPropagation()}
         >
-          <FrontAnswerHeader
-            diffShow={diffShow}
-          />
+          <FrontAnswerHeader/>
           <FrontAnswerNav
             tab={props.tab}
             activeTab={props.activeTab}

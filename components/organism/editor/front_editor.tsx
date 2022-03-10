@@ -1,6 +1,6 @@
-import {FC} from 'react'
+import {FC, useState} from 'react'
 import dynamic from 'next/dynamic'
-import FrontNave from '@/components/molecules/editor/front/nav'
+import FrontNav from '@/components/molecules/editor/front/nav'
 import { RecoilState, useRecoilState, useRecoilValue, SetterOrUpdater } from 'recoil';
 import styles from '@/styles/components/organism/editor/template.module.scss'
 import EditorFooter from '@/components/molecules/editor/footer';
@@ -57,7 +57,7 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
 
   return (
     <div className={styles.editor}>
-      <FrontNave
+      <FrontNav
         tab={props.tab}
         activeTab={props.activeTab}
       />

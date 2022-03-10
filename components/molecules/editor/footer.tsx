@@ -19,7 +19,7 @@ const onNextButton = () => {
 }
 
 const editorFooter: FC<EditorFooterProps> = (props) => {
-  const [show, setModalShow] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
 
   return (
     <div className={styles.editor_footer}>
@@ -31,7 +31,7 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
           答えをみる
         </button>
         <ModalFrontAnswer
-          show={show}
+          modalShow={modalShow}
           setModalShow={setModalShow}
           tab={props.tab}
           activeTab={props.activeTab}

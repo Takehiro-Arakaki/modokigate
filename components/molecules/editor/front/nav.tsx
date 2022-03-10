@@ -1,10 +1,11 @@
 import { useRecoilState, RecoilState } from 'recoil';
 import { FC } from 'react';
 import styles from '@/styles/components/molecules/editor/front/template.module.scss'
+import { FaHtml5 } from "react-icons/fa"
 
 type FrontNavProps = {
-  tab: { HTML?: 0; CSS?: 1; JS?: 2 }
-  activeTab: RecoilState<0 | 1 | 2>
+  tab: { HTML?: 0; CSS?: 1; JS?: 2 };
+  activeTab: RecoilState<0 | 1 | 2>;
 };
 
 type NavigationTab = 0 | 1 | 2 ;
@@ -42,12 +43,29 @@ const frontNav: FC<FrontNavProps>  = (props) => {
     return props.tab.JS === 2 ? navigationTab(props.tab.JS, tabName) : null
   }
 
+  const SplitIcon = () => {
+    console.log(props.modalShow)
+    if(props.modalShow){
+      return null
+    }
+    return (
+      <div className={styles.split_icon}>
+        <FaHtml5 size={32} color={'orange'}/>
+      </div>
+    )
+  }
+
   return (
-    <div className={styles.navigation}>
-      <IndexHtmlTab/>
-      <StyleSheetCssTab/>
-      <ScriptJsTab/>
-    </div>
+    <>
+      <div className={styles.navigation}>
+        <div>
+          <IndexHtmlTab/>
+          <StyleSheetCssTab/>
+          <ScriptJsTab/>
+        </div>
+        {/* <SplitIcon/> */}
+      </div>
+    </>
   )
 }
 

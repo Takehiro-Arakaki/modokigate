@@ -25,27 +25,29 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
 
   return (
     <>
-      <AceEditor
-        mode={props.target.aceMode}
-        theme={theme}
-        value={props.target.source}
-        width={null}
-        minLines={MIN_LINE}
-        maxLines={MAX_LINE}
-        readOnly={false}
-        showPrintMargin={false}
-        setOptions={{
-          useWorker: false,
-          tabSize: 2,
-          enableBasicAutocompletion: true,
-          fontSize: '12pt'
-        }}
-        onChange={value => {
-          props.target.change(value)
-        }}
-        editorProps={{ $blockScrolling: true }}
-        key={props.target.aceMode}
-      />
+      <div>
+        <AceEditor
+          mode={props.target.aceMode}
+          theme={theme}
+          value={props.target.source}
+          width={null}
+          minLines={MIN_LINE}
+          maxLines={MAX_LINE}
+          readOnly={false}
+          showPrintMargin={false}
+          setOptions={{
+            useWorker: false,
+            tabSize: 2,
+            enableBasicAutocompletion: true,
+            fontSize: '12pt'
+          }}
+          onChange={value => {
+            props.target.change(value)
+          }}
+          editorProps={{ $blockScrolling: true }}
+          key={props.target.aceMode}
+        />
+      </div>
     </>
   );
 };
