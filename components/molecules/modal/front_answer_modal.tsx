@@ -16,21 +16,12 @@ type FrontAnswerModalProps = {
   value: string;
 };
 
-const switchModal = (
-  show: boolean,
-  setModalShow: Dispatch<SetStateAction<boolean>>,
-  tab: { HTML?: 0; CSS?: 1; JS?: 2 },
-  activeTab: RecoilState<0 | 1 | 2>,
-  mode: string,
-  value: string,
-  setDiffToggle: Dispatch<SetStateAction<boolean>>,
-  setAnswerShow: Dispatch<SetStateAction<boolean>>,
-  setDiffShow: Dispatch<SetStateAction<boolean>>,
-  answerShow: boolean,
-  diffShow: boolean,
-  toggled: boolean,
-) => {
-  if (show) {
+const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
+  const [toggled, setDiffToggle] = useState(false);
+  const [answerShow, setAnswerShow] = useState(true);
+  const [diffShow, setDiffShow] = useState(true);
+
+  if (props.show) {
     return (
       <div className={styles.modal_screen}>
         <div
@@ -38,8 +29,8 @@ const switchModal = (
           onClick={(e) => e.stopPropagation()}
         >
           <FrontAnswerEditorNav
-            tab={tab}
-            activeTab={activeTab}
+            tab={props.tab}
+            activeTab={props.activeTab}
             setDiffToggle={setDiffToggle}
             setAnswerShow={setAnswerShow}
             setDiffShow={setDiffShow}
@@ -48,17 +39,17 @@ const switchModal = (
             diffShow={diffShow}
           />
           <FrontAnswerDiffEditor
-            mode={mode}
-            value={value}
+            mode={props.mode}
+            value={props.value}
             diffShow={diffShow}
           />
           <FrontAnswerEditor
-            mode={mode}
-            value={value}
+            mode={props.mode}
+            value={props.value}
             answerShow={answerShow}
           />
           <div>
-            <button onClick={() => setModalShow(false)}>
+            <button onClick={() => props.setModalShow(false)}>
               close
             </button>
           </div>
@@ -68,33 +59,6 @@ const switchModal = (
   } else {
     return null;
   }
-}
-
-const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
-  const [toggled, setDiffToggle] = useState(false);
-  const [answerShow, setAnswerShow] = useState(true);
-  const [diffShow, setDiffShow] = useState(true);
-
-  return (
-    <>
-      {
-        switchModal(
-          props.show,
-          props.setModalShow,
-          props.tab,
-          props.activeTab,
-          props.mode,
-          props.value,
-          setDiffToggle,
-          setAnswerShow,
-          setDiffShow,
-          answerShow,
-          diffShow,
-          toggled,
-        )
-      }
-    </>
-  )
 }
 
 export default frontAnswerModal
