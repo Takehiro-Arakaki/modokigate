@@ -1,9 +1,9 @@
 import { FC, Dispatch, SetStateAction } from 'react'
 import styles from '@/styles/components/editor/diff_editor.module.scss'
-import FrontEditorNav from '@/components/molecules/editor/navigation/front_editor_nav';
+import FrontEditorNav from '@/components/molecules/editor/front/navigation/editor_nav';
 import { RecoilState } from 'recoil';
 
-type FrontAnswerEditorNavProps = {
+type AnswerEditorNavProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 },
   activeTab: RecoilState<0 | 1 | 2>,
   setDiffToggle: Dispatch<SetStateAction<boolean>>,
@@ -14,7 +14,7 @@ type FrontAnswerEditorNavProps = {
   diffShow: boolean,
 };
 
-const frontAnswerEditorNav: FC<FrontAnswerEditorNavProps> = (props) => {
+const answerEditorNav: FC<AnswerEditorNavProps> = (props) => {
   return (
     <div className={styles.answer_header}>
       <div className={styles.answer_navigation}>
@@ -40,4 +40,4 @@ const frontAnswerEditorNav: FC<FrontAnswerEditorNavProps> = (props) => {
   )
 };
 
-export default frontAnswerEditorNav
+export default answerEditorNav

@@ -10,6 +10,9 @@ import AceEditor from 'react-ace';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type SourceEditorProps = {
+  tab: { HTML?: 0; CSS?: 1; JS?: 2 };
+  activeTab: RecoilState<0 | 1 | 2>;
+  target: SourceContentType;
   theme?: string;
   htmlSource: RecoilState<string>;
   cssSource: RecoilState<string>;
@@ -17,9 +20,6 @@ type SourceEditorProps = {
   sampleHtmlSource: string;
   sampleCssSource?: string;
   sampleJsSource?: string;
-  tab: { HTML?: 0; CSS?: 1; JS?: 2 };
-  activeTab: RecoilState<0 | 1 | 2>;
-  target: SourceContentType;
 };
 
 const MIN_LINE = 32;

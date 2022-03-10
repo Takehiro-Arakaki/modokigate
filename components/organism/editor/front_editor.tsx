@@ -1,6 +1,6 @@
 import {FC} from 'react'
 import dynamic from 'next/dynamic'
-import FrontEditorNav from '@/components/molecules/editor/navigation/front_editor_nav'
+import FrontEditorNav from '@/components/molecules/editor/front/navigation/editor_nav'
 import { RecoilState, useRecoilState, useRecoilValue, SetterOrUpdater } from 'recoil';
 import styles from '@/styles/components/editor/template.module.scss'
 import EditorFooter from '@/components/molecules/editor/footer';
@@ -62,21 +62,24 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
         activeTab={props.activeTab}
       />
       <SourceEditor
+        tab={props.tab}
+        activeTab={props.activeTab}
+        target={target}
         htmlSource={props.htmlSource}
         cssSource={props.cssSource}
         jsSource={props.jsSource}
         sampleHtmlSource={props.sampleHtmlSource}
         sampleCssSource={props.sampleCssSource}
         sampleJsSource={props.sampleJsSource}
-        tab={props.tab}
-        activeTab={props.activeTab}
-        target={target}
       />
       <EditorFooter
         mode={target.aceMode}
         value={target.sampleSource}
         tab={props.tab}
         activeTab={props.activeTab}
+        sampleHtmlSource={props.sampleHtmlSource}
+        sampleCssSource={props.sampleCssSource}
+        sampleJsSource={props.sampleJsSource}
       />
     </div>
   )

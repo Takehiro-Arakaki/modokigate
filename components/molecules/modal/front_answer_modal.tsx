@@ -1,7 +1,7 @@
 import { FC, Dispatch, SetStateAction, useState } from 'react';
 import dynamic from 'next/dynamic';
 import styles from '@/styles/components/modal/front_answer_modal.module.scss'
-import FrontAnswerEditorNav from '@/components/molecules/editor/navigation/front_answer_editor_nav'
+import FrontAnswerEditorNav from '@/components/molecules/editor/front/navigation/answer_editor_nav'
 const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
 const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/answer_editor'), { ssr: false })
 

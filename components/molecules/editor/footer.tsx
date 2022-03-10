@@ -8,6 +8,9 @@ type EditorFooterProps = {
   value: string;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
+  sampleHtmlSource: string;
+  sampleCssSource?: string;
+  sampleJsSource?: string;
 };
 const onAnswerButton = () => {
 
