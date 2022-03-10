@@ -6,6 +6,7 @@ const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff
 const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/answer_editor'), { ssr: false })
 
 import { RecoilState } from 'recoil';
+import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type FrontAnswerModalProps = {
   show: boolean;
@@ -13,7 +14,7 @@ type FrontAnswerModalProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
   mode: string;
-  value: string;
+  target: SourceContentType;
 };
 
 const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
@@ -40,12 +41,12 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
           />
           <FrontDiffEditor
             mode={props.mode}
-            value={props.value}
+            target={props.target}
             diffShow={diffShow}
           />
           <FrontAnswerEditor
             mode={props.mode}
-            value={props.value}
+            target={props.target}
             answerShow={answerShow}
           />
           <div>

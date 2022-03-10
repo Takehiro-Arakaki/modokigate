@@ -14,12 +14,6 @@ type SourceEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
   target: SourceContentType;
   theme?: string;
-  htmlSource: RecoilState<string>;
-  cssSource: RecoilState<string>;
-  jsSource: RecoilState<string>;
-  sampleHtmlSource: string;
-  sampleCssSource?: string;
-  sampleJsSource?: string;
 };
 
 const MIN_LINE = 32;

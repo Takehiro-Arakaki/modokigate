@@ -2,15 +2,13 @@ import { FC, useState } from 'react'
 import styles from '@/styles/components/editor/template.module.scss'
 import FrontAnswerModal from '@/components/molecules/modal/front_answer_modal';
 import { RecoilState } from 'recoil';
+import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type EditorFooterProps = {
-  mode: string;
-  value: string;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
-  sampleHtmlSource: string;
-  sampleCssSource?: string;
-  sampleJsSource?: string;
+  mode: string;
+  target: SourceContentType;
 };
 const onAnswerButton = () => {
 
@@ -38,7 +36,7 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
           tab={props.tab}
           activeTab={props.activeTab}
           mode={props.mode}
-          value={props.value}
+          target={props.target}
         />
       </div>
       <div className={styles.editor_next_button_content}>

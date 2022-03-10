@@ -65,21 +65,12 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
         tab={props.tab}
         activeTab={props.activeTab}
         target={target}
-        htmlSource={props.htmlSource}
-        cssSource={props.cssSource}
-        jsSource={props.jsSource}
-        sampleHtmlSource={props.sampleHtmlSource}
-        sampleCssSource={props.sampleCssSource}
-        sampleJsSource={props.sampleJsSource}
       />
       <EditorFooter
-        mode={target.aceMode}
-        value={target.sampleSource}
         tab={props.tab}
         activeTab={props.activeTab}
-        sampleHtmlSource={props.sampleHtmlSource}
-        sampleCssSource={props.sampleCssSource}
-        sampleJsSource={props.sampleJsSource}
+        mode={target.aceMode}
+        target={target}
       />
     </div>
   )

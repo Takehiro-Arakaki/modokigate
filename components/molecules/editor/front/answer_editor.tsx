@@ -5,13 +5,13 @@ import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import AceEditor from 'react-ace';
-
 import styles from '@/styles/components/editor/template.module.scss'
+import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type AnswerEditorProps = {
   theme?: string;
   mode: string;
-  value: string;
+  target: SourceContentType,
   answerShow: boolean;
 };
 const MIN_LINE = 32;
@@ -27,7 +27,7 @@ const answerEditor: FC<AnswerEditorProps> = (props) => {
           <AceEditor
             mode={props.mode}
             theme={theme}
-            value={props.value}
+            value={props.target.sampleSource}
             width={null}
             minLines={MIN_LINE}
             maxLines={MAX_LINE}
