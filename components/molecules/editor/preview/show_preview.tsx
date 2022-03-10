@@ -1,7 +1,7 @@
 import { useRecoilValue, RecoilState } from 'recoil'
 import { FC } from 'react';
 import { setTimerSource } from '@/foundations/setTimerSource';
-import styles from '@/styles/components/editor/preview/template.module.scss'
+import styles from '@/styles/components/molecules/editor/preview/template.module.scss'
 
 type ShowPreviewProps = {
   htmlSource?: RecoilState<string>;

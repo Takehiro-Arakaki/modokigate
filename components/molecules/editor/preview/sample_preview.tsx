@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from '@/styles/components/editor/preview/template.module.scss'
+import styles from '@/styles/components/molecules/editor/preview/template.module.scss'
 
 type SamplePreviweProps = {
   sampleHtmlSource?: string;

@@ -5,7 +5,7 @@ import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import AceEditor from 'react-ace';
-import styles from '@/styles/components/editor/template.module.scss'
+import styles from '@/styles/components/molecules/editor/template.module.scss'
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type FrontAnswerEditorProps = {

@@ -2,7 +2,7 @@ import {FC} from 'react'
 import dynamic from 'next/dynamic'
 import FrontNaveEditor from '@/components/molecules/editor/front/nav/editor'
 import { RecoilState, useRecoilState, useRecoilValue, SetterOrUpdater } from 'recoil';
-import styles from '@/styles/components/editor/template.module.scss'
+import styles from '@/styles/components/organism/editor/template.module.scss'
 import EditorFooter from '@/components/molecules/editor/footer';
 
 const SourceEditor = dynamic(import('@/components/molecules/editor/source_editor'), { ssr: false })

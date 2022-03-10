@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import styles from '@/styles/components/editor/template.module.scss'
+import styles from '@/styles/components/molecules/editor/template.module.scss'
 import ModalFrontAnswer from '@/components/molecules/modal/front_answer';
 import { RecoilState } from 'recoil';
 import { SourceContentType } from '@/components/organism/editor/front_editor';

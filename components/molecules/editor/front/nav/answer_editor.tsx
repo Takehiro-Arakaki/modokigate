@@ -1,5 +1,5 @@
 import { FC, Dispatch, SetStateAction } from 'react'
-import styles from '@/styles/components/editor/diff_editor.module.scss'
+import styles from '@/styles/components/molecules/editor/front/template.module.scss'
 import FrontNavEditor from '@/components/molecules/editor/front/nav/editor';
 import { RecoilState } from 'recoil';
 

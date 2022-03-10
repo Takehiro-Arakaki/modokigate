@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import styles from '@/styles/components/editor/protocol/template.module.scss'
+import styles from '@/styles/components/organism/editor/template.module.scss'
 
 type ProtocolProps = {
   protocolHeader: string;
