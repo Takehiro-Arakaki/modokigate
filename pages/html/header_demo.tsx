@@ -31,7 +31,7 @@ const HeaderCss =
 
 const SampleHeaderCss =
 `.hello {
-  color: red
+  color: blue;
 }`
 
 const htmlHeader: FC<{}> = () => {

@@ -14,8 +14,8 @@ type FrontAnswerEditorProps = {
   target: SourceContentType,
   answerShow: boolean;
 };
-const MIN_LINE = 32;
-const MAX_LINE = 32;
+const MIN_LINE = 31;
+const MAX_LINE = 31;
 const DEFAULT_THEME = 'monokai';
 
 const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
