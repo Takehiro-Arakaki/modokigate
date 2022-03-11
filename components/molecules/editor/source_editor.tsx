@@ -5,7 +5,6 @@ import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
-import 'ace-builds/src-noconflict/ext-language_tools.js';
 import AceEditor from 'react-ace';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
