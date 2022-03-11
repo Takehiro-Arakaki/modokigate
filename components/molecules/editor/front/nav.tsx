@@ -43,18 +43,6 @@ const frontNav: FC<FrontNavProps>  = (props) => {
     return props.tab.JS === 2 ? navigationTab(props.tab.JS, tabName) : null
   }
 
-  const SplitIcon = () => {
-    console.log(props.modalShow)
-    if(props.modalShow){
-      return null
-    }
-    return (
-      <div className={styles.split_icon}>
-        <FaHtml5 size={32} color={'orange'}/>
-      </div>
-    )
-  }
-
   return (
     <>
       <div className={styles.navigation}>
@@ -63,7 +51,6 @@ const frontNav: FC<FrontNavProps>  = (props) => {
           <StyleSheetCssTab/>
           <ScriptJsTab/>
         </div>
-        {/* <SplitIcon/> */}
       </div>
     </>
   )
