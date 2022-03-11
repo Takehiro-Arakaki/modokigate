@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import styles from '@/styles/components/molecules/editor/template.module.scss'
 import ModalFrontAnswer from '@/components/molecules/modal/front_answer';
+import ModalResult from '@/components/molecules/modal/result';
 import { RecoilState } from 'recoil';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
@@ -10,29 +11,23 @@ type EditorFooterProps = {
   mode: string;
   target: SourceContentType;
 };
-const onAnswerButton = () => {
-
-}
-
-const onNextButton = () => {
-
-}
 
 const editorFooter: FC<EditorFooterProps> = (props) => {
-  const [modalShow, setModalShow] = useState(false)
+  const [modalAnswerShow, setModalAnswerShow] = useState(false)
+  const [modalResultShow, setModalResultShow] = useState(false)
 
   return (
     <div className={styles.editor_footer}>
       <div className={styles.editor_answer_button_content}>
         <button
           className={styles.editor_answer_button}
-          onClick={() => setModalShow(true)}
+          onClick={() => setModalAnswerShow(true)}
         >
           答えをみる
         </button>
         <ModalFrontAnswer
-          modalShow={modalShow}
-          setModalShow={setModalShow}
+          modalAnswerShow={modalAnswerShow}
+          setModalAnswerShow={setModalAnswerShow}
           tab={props.tab}
           activeTab={props.activeTab}
           mode={props.mode}
@@ -42,10 +37,20 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
       <div className={styles.editor_next_button_content}>
         <button
           className={styles.editor_next_button}
-          onClick={onNextButton}
+          onClick={() => setModalResultShow(true)}
         >
           結果を表示
         </button>
+      </div>
+      <div>
+        <ModalResult
+          modalResultShow={modalResultShow}
+          setModalResultShow={setModalResultShow}
+          // tab={props.tab}
+          // activeTab={props.activeTab}
+          // mode={props.mode}
+          // target={props.target}
+        />
       </div>
     </div>
   );

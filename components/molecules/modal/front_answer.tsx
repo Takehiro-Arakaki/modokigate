@@ -1,6 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState } from 'react';
 import dynamic from 'next/dynamic';
-import styles from '@/styles/components/molecules/modal/front_answer.module.scss'
+import styles from '@/styles/components/molecules/modal/template.module.scss'
 import FrontAnswerNav from '@/components/molecules/editor/front/answer_nav'
 import FrontDiffNav from '@/components/molecules/editor/front/diff_nav'
 const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
@@ -9,16 +9,16 @@ const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/an
 import { RecoilState } from 'recoil';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
-type FrontAnswerModalProps = {
-  modalShow: boolean;
-  setModalShow: Dispatch<SetStateAction<boolean>>;
+type ModalFrontAnswerProps = {
+  modalAnswerShow: boolean;
+  setModalAnswerShow: Dispatch<SetStateAction<boolean>>;
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
   mode: string;
   target: SourceContentType;
 };
 
-const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
+const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
   const [toggled, setDiffToggle] = useState(false);
   const [answerShow, setAnswerShow] = useState(true);
   const [diffShow, setDiffShow] = useState(false);
@@ -37,11 +37,11 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
     }
   }
 
-  if (props.modalShow) {
+  if (props.modalAnswerShow) {
     return (
-      <div className={styles.modal_screen}>
+      <div className={styles.answer_modal_screen}>
         <div
-          className={styles.modal_content}
+          className={styles.answer_modal_content}
           onClick={(e) => e.stopPropagation()}
         >
           <FrontAnswerHeader/>
@@ -69,7 +69,7 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
             answerShow={answerShow}
           />
           <div>
-            <button onClick={() => props.setModalShow(false)}>
+            <button onClick={() => props.setModalAnswerShow(false)}>
               close
             </button>
           </div>
@@ -81,4 +81,4 @@ const frontAnswerModal: FC<FrontAnswerModalProps> = (props) => {
   }
 }
 
-export default frontAnswerModal
+export default modalFrontAnswer
