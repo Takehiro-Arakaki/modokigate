@@ -1,7 +1,7 @@
 import { useRecoilState, RecoilState } from 'recoil';
 import { FC } from 'react';
 import styles from '@/styles/components/molecules/editor/front/template.module.scss'
-import { FaHtml5 } from "react-icons/fa"
+import { FaHtml5, FaCss3, FaJs } from "react-icons/fa"
 
 type FrontNavProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
@@ -17,13 +17,26 @@ const frontNav: FC<FrontNavProps>  = (props) => {
     return active === tab ? styles.active : '';
   };
 
+  const langIcon = (tab: number) => {
+    switch (tab){
+      case 0:
+        return <FaHtml5 size={12} color={'orange'} className={styles.icons}/>;
+      case 1:
+        return <FaCss3 size={12} color={'skyblue'} className={styles.icons}/>;
+      case 2:
+        return <FaJs size={12} color={'yellow'} className={styles.icons}/>;
+      default:
+        console.log('iconsError');
+    }
+  };
+
   const navigationTab = (tab: NavigationTab, tabName: string) => {
     return (
       <a
         className={`${styles.link} ${activeClass(tab)}`}
         onClick={() => { changeActive(tab); }}
       >
-        {tabName}
+        <span>{langIcon(tab)}{tabName}</span>
       </a>
     )
   }
