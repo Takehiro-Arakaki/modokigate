@@ -6,6 +6,7 @@ import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import AceEditor from 'react-ace';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
+import styles from '@/styles/components/molecules/editor/front/template.module.scss'
 
 type FrontAnswerEditorProps = {
   theme?: string;
@@ -23,6 +24,7 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
     return (
       <>
         <AceEditor
+          className='answer_editor'
           mode={props.mode}
           theme={theme}
           value={props.target.sampleSource}
@@ -34,7 +36,7 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
           setOptions={{
             useWorker: false,
             tabSize: 2,
-            fontSize: '12pt'
+            fontSize: '11pt'
           }}
           editorProps={{ $blockScrolling: true }}
           key={props.mode}

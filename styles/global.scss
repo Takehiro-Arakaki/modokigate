@@ -19,6 +19,9 @@ body {
   &.front_editor {
     @include editor-screen-height;
   }
+  &.answer_editor {
+    @include answer-editor-screen-height;
+  }
 }
 
 // AceEditor差分ハイライト

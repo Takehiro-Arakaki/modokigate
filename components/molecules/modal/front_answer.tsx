@@ -52,9 +52,7 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
     } else {
       return (
         <div className={styles.editor_header}>
-          <div className={styles.editor_header_content}>
-            答え
-          </div>
+          答え
         </div>
       )
     }
