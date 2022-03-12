@@ -5,7 +5,6 @@ import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import AceEditor from 'react-ace';
-import styles from '@/styles/components/molecules/editor/template.module.scss'
 import { SourceContentType } from '@/components/organism/editor/front_editor';
 
 type FrontAnswerEditorProps = {
@@ -35,7 +34,7 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
           setOptions={{
             useWorker: false,
             tabSize: 2,
-            fontSize: '13pt'
+            fontSize: '12pt'
           }}
           editorProps={{ $blockScrolling: true }}
           key={props.mode}

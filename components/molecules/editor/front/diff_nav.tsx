@@ -12,7 +12,7 @@ const frontAnswerHeader: FC<AnswerEditorNavProps> = (props) => {
         <div className={styles.diff_nav_content}>
           自分のコード
         </div>
-        <div>
+        <div className={styles.diff_nav_content}>
           答え
         </div>
       </div>

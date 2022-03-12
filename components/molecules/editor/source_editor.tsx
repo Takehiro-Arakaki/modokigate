@@ -15,8 +15,8 @@ type SourceEditorProps = {
   theme?: string;
 };
 
-const MIN_LINE = 32;
-const MAX_LINE = 32;
+const MIN_LINE = 31;
+const MAX_LINE = 31;
 const DEFAULT_THEME = 'monokai';
 
 const sourceEditor: FC<SourceEditorProps> = (props) => {
@@ -37,7 +37,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         setOptions={{
           useWorker: false,
           tabSize: 2,
-          fontSize: '13pt'
+          fontSize: '12pt'
         }}
         onChange={value => {
           props.target.change(value)
