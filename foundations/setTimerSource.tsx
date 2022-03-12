@@ -8,7 +8,7 @@ export const setTimerSource = (
   useEffect(() => {
     const createTimer = setTimeout(() => {
       setSource(source)
-    }, 1000)
+    }, 500)
 
     return () => {
       clearTimeout(createTimer)

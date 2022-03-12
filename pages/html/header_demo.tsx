@@ -17,9 +17,7 @@ const Protocol = [
 ]
 
 const HeaderHtml =
-`<h1 class="hello">Hello PlayGround!</h1>
-<h2 class="hello">Hello PlayGround!</h2>
-<h3 class="hello">Hello PlayGround!</h3>`
+`<h1 class="hello">これは見本のテストです<`
 
 const SampleHeaderHtml =
 `<h1 class="hello">これは見本のテストです</h1>`

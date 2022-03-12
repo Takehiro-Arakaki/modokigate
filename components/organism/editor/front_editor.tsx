@@ -18,7 +18,7 @@ type FrontEditorProps = {
   activeTab: RecoilState<0 | 1 | 2>;
 };
 
-type SourceType = {[key: number]: SourceContentType}
+export type SourceType = {[key: number]: SourceContentType}
 export type SourceContentType = {
   aceMode: string;
   source: string;
@@ -70,6 +70,7 @@ const frontEditor: FC<FrontEditorProps> = (props) => {
         tab={props.tab}
         activeTab={props.activeTab}
         mode={target.aceMode}
+        source={source}
         target={target}
       />
     </div>

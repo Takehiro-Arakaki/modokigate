@@ -3,12 +3,13 @@ import styles from '@/styles/components/molecules/editor/template.module.scss'
 import ModalFrontAnswer from '@/components/molecules/modal/front_answer';
 import ModalResult from '@/components/molecules/modal/result';
 import { RecoilState } from 'recoil';
-import { SourceContentType } from '@/components/organism/editor/front_editor';
+import { SourceContentType, SourceType } from '@/components/organism/editor/front_editor';
 
 type EditorFooterProps = {
   tab: { HTML?: 0; CSS?: 1; JS?: 2 };
   activeTab: RecoilState<0 | 1 | 2>;
   mode: string;
+  source: SourceType;
   target: SourceContentType;
 };
 
@@ -46,6 +47,7 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
         <ModalResult
           modalResultShow={modalResultShow}
           setModalResultShow={setModalResultShow}
+          source={props.source}
           // tab={props.tab}
           // activeTab={props.activeTab}
           // mode={props.mode}

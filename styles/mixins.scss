@@ -46,6 +46,30 @@
   }
 }
 
+@mixin answer-editor-screen-height {
+  height: 300px !important;
+
+  $screen-height-system:
+    (600px) (650px) (350px),
+    (650px) (700px) (400px),
+    (700px) (750px) (450px),
+    (750px) (800px) (500px),
+    (800px) (850px) (550px),
+    (850px) (900px) (600px),
+    (900px) (950px) (650px),
+    (950px) (1000px) (700px),
+    (1000px) (1050px) (750px);
+
+  @each $min-height, $max-height, $height in $screen-height-system {
+    @media screen and (min-height: $min-height) and (max-height: $max-height){
+      height: ($height) !important;
+    }
+  }
+  @media screen and (min-height: 1050px) {
+    height: (800px) !important;
+  }
+}
+
 @mixin main-background-color{
   background-color: #562b7c;
 }

@@ -18,10 +18,33 @@ type ModalFrontAnswerProps = {
   target: SourceContentType;
 };
 
+
+const handler = (
+  setModalAnswerShow: (v: boolean) => void,
+  handlerAnswer: (v: boolean) => void,
+  handlerToggle:  (v: SetStateAction<boolean>) => void,
+  handlerDiff:  (v: SetStateAction<boolean>) => void,
+  toggled: boolean,
+) => {
+  setModalAnswerShow(false)
+
+  if (toggled) {
+    handlerAnswer(true)
+    handlerToggle(false)
+    handlerDiff(false)
+  }
+}
+
 const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
-  const [toggled, setDiffToggle] = useState(false);
   const [answerShow, setAnswerShow] = useState(true);
+  const [toggled, setDiffToggle] = useState(false);
   const [diffShow, setDiffShow] = useState(false);
+
+  const handlerModalAnswer = (v: boolean) => { props.setModalAnswerShow(v) }
+  const handlerAnswer = (v: boolean) => { setAnswerShow(v) }
+  const handlerToggle = (v: boolean) => { setDiffToggle(v) }
+  const handlerDiff = (v: boolean) => { setDiffShow(v) }
+
 
   const FrontAnswerHeader = () => {
     if(diffShow){
@@ -71,7 +94,13 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
           <div className={styles.answer_close_button_content}>
             <button
               className={styles.answer_close_button}
-              onClick={() => props.setModalAnswerShow(false)}>
+              onClick={() => handler(
+                handlerModalAnswer,
+                handlerAnswer,
+                handlerToggle,
+                handlerDiff,
+                toggled,
+              )}>
               close
             </button>
           </div>
