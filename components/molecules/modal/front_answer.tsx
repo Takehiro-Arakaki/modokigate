@@ -19,13 +19,15 @@ type ModalFrontAnswerProps = {
 };
 
 
-const handler = (
+const handlerAnswerDetail = (
+  event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   setModalAnswerShow: (v: boolean) => void,
   handlerAnswer: (v: boolean) => void,
   handlerToggle:  (v: SetStateAction<boolean>) => void,
   handlerDiff:  (v: SetStateAction<boolean>) => void,
   toggled: boolean,
 ) => {
+  event.stopPropagation();
   setModalAnswerShow(false)
 
   if (toggled) {
@@ -92,7 +94,8 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
           <div className={styles.answer_close_button_content}>
             <button
               className={styles.answer_close_button}
-              onClick={() => handler(
+              onClick={(event) => handlerAnswerDetail(
+                event,
                 handlerModalAnswer,
                 handlerAnswer,
                 handlerToggle,

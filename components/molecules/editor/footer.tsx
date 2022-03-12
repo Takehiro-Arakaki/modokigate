@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, Dispatch, SetStateAction } from 'react'
 import styles from '@/styles/components/molecules/editor/template.module.scss'
 import ModalFrontAnswer from '@/components/molecules/modal/front_answer';
 import ModalResult from '@/components/molecules/modal/result';
@@ -13,6 +13,15 @@ type EditorFooterProps = {
   target: SourceContentType;
 };
 
+const handerAnswerShow = (
+  e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  setModalAnswerShow: Dispatch<SetStateAction<boolean>>
+) => {
+  e.stopPropagation();
+  setModalAnswerShow(true)
+
+}
+
 const editorFooter: FC<EditorFooterProps> = (props) => {
   const [modalAnswerShow, setModalAnswerShow] = useState(false)
   const [modalResultShow, setModalResultShow] = useState(false)
@@ -22,7 +31,7 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
       <div className={styles.editor_answer_button_content}>
         <button
           className={styles.editor_answer_button}
-          onClick={() => setModalAnswerShow(true)}
+          onClick={(e) => handerAnswerShow(e, setModalAnswerShow)}
         >
           答えをみる
         </button>
@@ -48,10 +57,6 @@ const editorFooter: FC<EditorFooterProps> = (props) => {
           modalResultShow={modalResultShow}
           setModalResultShow={setModalResultShow}
           source={props.source}
-          // tab={props.tab}
-          // activeTab={props.activeTab}
-          // mode={props.mode}
-          // target={props.target}
         />
       </div>
     </div>

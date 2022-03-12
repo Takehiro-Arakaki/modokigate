@@ -8,24 +8,27 @@ type ModalResultProps = {
   source: SourceType;
 };
 
-const modalResult: FC<ModalResultProps> = (props) => {
-  const inspectAnswer = () => {
-    const source = props.source
-    const resultArry = []
+const inspectAnswer = (source) => {
+  const resultArry = []
 
-    for(const i in source) {
-      resultArry.push(source[i].source === source[i].sampleSource)
-    }
-    const inspectionResult = resultArry.includes(false)
-    return inspectionResult
+  for(const i in source) {
+    resultArry.push(source[i].source === source[i].sampleSource)
   }
+  const inspectionResult = resultArry.includes(false)
+  return inspectionResult
+}
 
-  if (props.modalResultShow && !inspectAnswer) {
+
+const modalResult: FC<ModalResultProps> = (props) => {
+
+  const inspect = inspectAnswer(props.source)
+
+  if (props.modalResultShow && !inspect) {
     return (
       <div className={styles.result_modal_screen}>
         <div
           className={styles.result_modal_content}
-          onClick={(e) => e.stopPropagation()}
+
         >
         </div>
       </div>
@@ -35,7 +38,7 @@ const modalResult: FC<ModalResultProps> = (props) => {
       <div className={styles.result_modal_screen}>
         <div
           className={styles.result_modal_content}
-          onClick={(e) => e.stopPropagation()}
+
         >
           {/* <div className='acediff'>
           </div> */}
