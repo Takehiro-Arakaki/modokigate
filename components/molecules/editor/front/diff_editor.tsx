@@ -19,7 +19,6 @@ const diffEditor: FC<DiffEditorProps> = (props) => {
         <DiffEditor
           value={[props.target.source, props.target.sampleSource]}
           mode={props.mode}
-          enableBasicAutocompletion
           enableLiveAutocompletion
           highlightActiveLine
           showGutter
@@ -30,7 +29,6 @@ const diffEditor: FC<DiffEditorProps> = (props) => {
           height='630px'
           theme='monokai'
           setOptions={{
-            enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
             enableSnippets: true,
             showLineNumbers: true,

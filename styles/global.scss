@@ -1,9 +1,26 @@
+@import './mixins.scss';
+
+html {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  // background-color: #c29be9;
-  background-color: #5b2294;
+  min-height: 100%;
+  height: auto;
+  position: relative;
+  @include main-background-color;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+#ace-editor {
+  &.front_editor {
+    @include editor-screen-height;
+  }
+}
+
 // AceEditor差分ハイライト
 .codeMarker {
   background: rgba(255,112,143,0.12);

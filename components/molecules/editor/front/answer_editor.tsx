@@ -36,7 +36,6 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
             setOptions={{
               useWorker: false,
               tabSize: 2,
-              enableBasicAutocompletion: true,
               fontSize: '12pt'
             }}
             editorProps={{ $blockScrolling: true }}

@@ -1,3 +1,5 @@
+@import '../../../mixins.scss';
+
 .editor {
   background-color: #495265;
 }
@@ -15,9 +17,9 @@
 }
 
 .protocol_content {
-  background-color: #D9E5FF;
   overflow: overlay;
-  height: 771px;
+  @include sub-background-color;
+  @include side-screen-height;
 }
 
 .protocol_header {

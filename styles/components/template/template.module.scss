@@ -1,16 +1,21 @@
-.play_ground{
+@import '../../mixins.scss';
+
+.play_ground {
   display: grid;
   grid-gap: 5px;
+  width: 100%;
+  height: 100%;
 }
 
-.play_ground_protocol{
+.play_ground_protocol {
   grid-column: 1 / 2;
 }
 
-.play_ground_editor{
+.play_ground_editor {
   grid-column: 2 / 13;
 }
 
-.play_ground_preview{
+.play_ground_preview {
   grid-column: 13 / 14;
+  @include side-screen-height;
 }
