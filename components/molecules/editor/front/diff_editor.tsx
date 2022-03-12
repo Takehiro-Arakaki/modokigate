@@ -11,6 +11,9 @@ type DiffEditorProps = {
   target: SourceContentType,
   diffShow: boolean,
 };
+const MIN_LINE = 31;
+const MAX_LINE = 31;
+const DEFAULT_THEME = 'monokai';
 
 const diffEditor: FC<DiffEditorProps> = (props) => {
   if (props.diffShow) {
@@ -25,14 +28,16 @@ const diffEditor: FC<DiffEditorProps> = (props) => {
           showPrintMargin={false}
           wrapEnabled
           readOnly
+          minLines={MIN_LINE}
+          maxLines={MAX_LINE}
           width={null}
           height='630px'
-          theme='monokai'
+          theme={DEFAULT_THEME}
           setOptions={{
             enableLiveAutocompletion: true,
             enableSnippets: true,
             showLineNumbers: true,
-            fontSize: '12pt',
+            fontSize: '13pt',
             readOnly: true,
             tabSize: 2,
           }}

@@ -37,7 +37,7 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
         setOptions={{
           useWorker: false,
           tabSize: 2,
-          fontSize: '12pt'
+          fontSize: '13pt'
         }}
         onChange={value => {
           props.target.change(value)

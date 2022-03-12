@@ -23,25 +23,23 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
   if (props.answerShow) {
     return (
       <>
-        <div className={styles.editor}>
-          <AceEditor
-            mode={props.mode}
-            theme={theme}
-            value={props.target.sampleSource}
-            width={null}
-            minLines={MIN_LINE}
-            maxLines={MAX_LINE}
-            readOnly={true}
-            showPrintMargin={false}
-            setOptions={{
-              useWorker: false,
-              tabSize: 2,
-              fontSize: '12pt'
-            }}
-            editorProps={{ $blockScrolling: true }}
-            key={props.mode}
-          />
-        </div>
+        <AceEditor
+          mode={props.mode}
+          theme={theme}
+          value={props.target.sampleSource}
+          width={null}
+          minLines={MIN_LINE}
+          maxLines={MAX_LINE}
+          readOnly={true}
+          showPrintMargin={false}
+          setOptions={{
+            useWorker: false,
+            tabSize: 2,
+            fontSize: '13pt'
+          }}
+          editorProps={{ $blockScrolling: true }}
+          key={props.mode}
+        />
       </>
     )
   } else {
