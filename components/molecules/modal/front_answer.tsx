@@ -68,8 +68,10 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
             target={props.target}
             answerShow={answerShow}
           />
-          <div>
-            <button onClick={() => props.setModalAnswerShow(false)}>
+          <div className={styles.answer_close_button_content}>
+            <button
+              className={styles.answer_close_button}
+              onClick={() => props.setModalAnswerShow(false)}>
               close
             </button>
           </div>

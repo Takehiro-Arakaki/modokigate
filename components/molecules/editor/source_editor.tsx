@@ -37,7 +37,6 @@ const sourceEditor: FC<SourceEditorProps> = (props) => {
           setOptions={{
             useWorker: false,
             tabSize: 2,
-            enableBasicAutocompletion: true,
             fontSize: '12pt'
           }}
           onChange={value => {
