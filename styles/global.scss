@@ -17,10 +17,10 @@ body {
 
 #ace-editor {
   &.front_editor {
-    @include editor-screen-height;
+    @include screen-height;
   }
   &.answer_editor {
-    @include answer-editor-screen-height;
+    @include screen-height(350px);
   }
 }
 

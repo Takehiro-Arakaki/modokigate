@@ -17,5 +17,5 @@
 
 .play_ground_preview {
   grid-column: 13 / 14;
-  @include side-screen-height;
+  @include screen-height(500px);
 }

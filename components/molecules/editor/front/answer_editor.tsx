@@ -6,7 +6,6 @@ import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import AceEditor from 'react-ace';
 import { SourceContentType } from '@/components/organism/editor/front_editor';
-import styles from '@/styles/components/molecules/editor/front/template.module.scss'
 
 type FrontAnswerEditorProps = {
   theme?: string;
@@ -43,9 +42,9 @@ const frontAnswerEditor: FC<FrontAnswerEditorProps> = (props) => {
         />
       </>
     )
-  } else {
-    return null;
   }
+
+  return null;
 };
 
 export default frontAnswerEditor

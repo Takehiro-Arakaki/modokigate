@@ -19,7 +19,7 @@
 .protocol_content {
   overflow: overlay;
   @include sub-background-color;
-  @include side-screen-height;
+  @include screen-height(500px);
 }
 
 .protocol_header {

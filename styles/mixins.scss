@@ -1,16 +1,16 @@
-@mixin editor-screen-height {
-  height: 400px !important;
+@mixin screen-height($defalut-size: 400px) {
+  height: defalut-size !important;
 
   $screen-height-system:
-    (600px) (650px) (450px),
-    (650px) (700px) (500px),
-    (700px) (750px) (550px),
-    (750px) (800px) (600px),
-    (800px) (850px) (650px),
-    (850px) (900px) (700px),
-    (900px) (950px) (750px),
-    (950px) (1000px) (800px),
-    (1000px) (1050px) (850px);
+    (600px) (650px) ($defalut-size + 50px),
+    (650px) (700px) ($defalut-size + 100px),
+    (700px) (750px) ($defalut-size + 150px),
+    (750px) (800px) ($defalut-size + 200px),
+    (800px) (850px) ($defalut-size + 250px),
+    (850px) (900px) ($defalut-size + 300px),
+    (900px) (950px) ($defalut-size + 350px),
+    (950px) (1000px) ($defalut-size + 400px),
+    (1000px) (1050px) ($defalut-size + 450px);
 
   @each $min-height, $max-height, $height in $screen-height-system {
     @media screen and (min-height: $min-height) and (max-height: $max-height){
@@ -18,67 +18,19 @@
     }
   }
   @media screen and (min-height: 1050px) {
-    height: (900px) !important;
+    height: ($defalut-size + 500px) !important;
   }
 }
 
-@mixin side-screen-height {
-  height: 500px !important;
-
-  $screen-height-system:
-    (600px) (650px) (550px),
-    (650px) (700px) (600px),
-    (700px) (750px) (650px),
-    (750px) (800px) (700px),
-    (800px) (850px) (750px),
-    (850px) (900px) (800px),
-    (900px) (950px) (850px),
-    (950px) (1000px) (900px),
-    (1000px) (1050px) (950px);
-
-  @each $min-height, $max-height, $height in $screen-height-system {
-    @media screen and (min-height: $min-height) and (max-height: $max-height){
-      height: ($height) !important;
-    }
-  }
-  @media screen and (min-height: 1050px) {
-    height: (1000px) !important;
-  }
-}
-
-@mixin answer-editor-screen-height {
-  height: 350px !important;
-
-  $screen-height-system:
-    (600px) (650px) (400px),
-    (650px) (700px) (450px),
-    (700px) (750px) (500px),
-    (750px) (800px) (550px),
-    (800px) (850px) (600px),
-    (850px) (900px) (650px),
-    (900px) (950px) (700px),
-    (950px) (1000px) (750px),
-    (1000px) (1050px) (800px);
-
-  @each $min-height, $max-height, $height in $screen-height-system {
-    @media screen and (min-height: $min-height) and (max-height: $max-height){
-      height: ($height) !important;
-    }
-  }
-  @media screen and (min-height: 1050px) {
-    height: (850px) !important;
-  }
-}
-
-@mixin main-background-color{
+@mixin main-background-color {
   background-color: #562b7c;
 }
 
-@mixin sub-background-color{
+@mixin sub-background-color {
   background-color: #D9E5FF;
 }
 
-@mixin light-main-background-color{
+@mixin light-main-background-color {
   background-color: rgba(255,112,143,0.12)
 }
 

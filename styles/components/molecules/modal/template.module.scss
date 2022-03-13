@@ -19,7 +19,7 @@
   background:#fff;
   width: 80%;
   background-color: #495265;
-  @include answer-editor-screen-height;
+  @include screen-height(350px);
 }
 .answer_close_button_content {
   text-align: right;
