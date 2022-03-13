@@ -1,8 +1,9 @@
-import { FC, Dispatch, SetStateAction, useState } from 'react';
+import { FC, Dispatch, SetStateAction, useState, useEffect, useLayoutEffect } from 'react';
 import dynamic from 'next/dynamic';
 import styles from '@/styles/components/molecules/modal/template.module.scss'
 import FrontAnswerNav from '@/components/molecules/editor/front/answer_nav'
 import FrontDiffNav from '@/components/molecules/editor/front/diff_nav'
+import Loading from '@/components/atoms/loading'
 const FrontDiffEditor = dynamic(import('@/components/molecules/editor/front/diff_editor'), { ssr: false })
 const FrontAnswerEditor = dynamic(import('@/components/molecules/editor/front/answer_editor'), { ssr: false })
 
@@ -19,34 +20,34 @@ type ModalFrontAnswerProps = {
 };
 
 
-const handlerAnswerDetail = (
+const handlerAnswerClose = (
   event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   setModalAnswerShow: (v: boolean) => void,
   handlerAnswer: (v: boolean) => void,
   handlerToggle:  (v: SetStateAction<boolean>) => void,
   handlerDiff:  (v: SetStateAction<boolean>) => void,
-  toggled: boolean,
 ) => {
   event.stopPropagation();
-  setModalAnswerShow(false)
-
-  if (toggled) {
-    handlerAnswer(true)
-    handlerToggle(false)
-    handlerDiff(false)
-  }
+  setModalAnswerShow(false);
+  handlerAnswer(true);
+  handlerToggle(false);
+  handlerDiff(false);
 }
 
 const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
   const [answerShow, setAnswerShow] = useState(true);
   const [toggled, setDiffToggle] = useState(false);
   const [diffShow, setDiffShow] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handlerModalAnswer = (v: boolean) => { props.setModalAnswerShow(v) }
   const handlerAnswer = (v: boolean) => { setAnswerShow(v) }
   const handlerToggle = (v: boolean) => { setDiffToggle(v) }
   const handlerDiff = (v: boolean) => { setDiffShow(v) }
 
+  useEffect(() => {
+    async () => { setLoading(false) };
+  }, [])
 
   const FrontAnswerHeader = () => {
     if(diffShow){
@@ -60,13 +61,20 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
     }
   }
 
+  // if (props.modalAnswerShow && loading) {
+  //   return (
+  //     <div className={styles.answer_modal_screen}>
+  //       <div className={styles.answer_modal_content}>
+  //         <Loading/>
+  //       </div>
+  //     </div>
+  //   )
+  // }
+
   if (props.modalAnswerShow) {
     return (
       <div className={styles.answer_modal_screen}>
-        <div
-          className={styles.answer_modal_content}
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className={styles.answer_modal_content}>
           <FrontAnswerHeader/>
           <FrontAnswerNav
             tab={props.tab}
@@ -94,13 +102,12 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
           <div className={styles.answer_close_button_content}>
             <button
               className={styles.answer_close_button}
-              onClick={(event) => handlerAnswerDetail(
+              onClick={(event) => handlerAnswerClose(
                 event,
                 handlerModalAnswer,
                 handlerAnswer,
                 handlerToggle,
                 handlerDiff,
-                toggled,
               )}>
               close
             </button>
@@ -108,9 +115,9 @@ const modalFrontAnswer: FC<ModalFrontAnswerProps> = (props) => {
         </div>
       </div>
     )
-  } else {
-    return null;
   }
+
+  return null;
 }
 
 export default modalFrontAnswer
